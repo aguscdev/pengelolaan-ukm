@@ -13,8 +13,13 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
     <link rel="stylesheet" href="assets/include/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/include/style.css">
     <link rel="stylesheet" type="text/css" href="assets/include/display.css">
+    <style>
+      .background-color {
+        background-color:#ffffff;
+      }
+    </style>
 </head>
-<body>
+<body class="background-color">
     
 <!-- Header Nav ============================================================== -->
   <div class="header-blue">
@@ -31,6 +36,18 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
                 <li><a href="product.php">Smart Phones</a></li>
                 <li><a href="product.php">Laptops</a></li>
                 <li><a href="product.php">Accessories</a></li>
+              </ul>
+            </li>
+             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pelatihan <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="">Tambah Pelatihan</a></li>
+                <li><a href="">List Pelatihan</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pameran <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="">Tambah Pameran</a></li>
+                <li><a href="">List Pameran</a></li>
               </ul>
             </li>
           </ul>

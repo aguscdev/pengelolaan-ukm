@@ -7,9 +7,7 @@ if ($_SESSION['username']=='') {
   $level = $_SESSION["level"];
 
   // var_dump($user,$user_id,$level);
- 
-
-  if ($level=='ADMIN') { ?>
+ ?>
       <header class="main-header">
     <!-- Logo -->
     <a href="#" class="logo">
@@ -64,6 +62,7 @@ if ($_SESSION['username']=='') {
                 <span class="pull-right-container"></span>
             </a>
         </li> -->
+        <?php if ($level == 'ADMIN'){ ?>
         <li>
             <a href="#produk" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>PRODUK</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="produk" class="collapse ">
@@ -73,6 +72,8 @@ if ($_SESSION['username']=='') {
                 </ul>
             </div>
         </li>
+        <?php } ?>
+        <?php if ($level == 'ADMIN' || $level == 'UKM' || $level == 'DESA'){ ?>
         <li>
             <a href="#ukm" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>UKM</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="ukm" class="collapse ">
@@ -82,6 +83,8 @@ if ($_SESSION['username']=='') {
                 </ul>
             </div>
         </li>
+         <?php } ?>
+         <?php if ($level == 'ADMIN' || $level == 'DESA'){ ?>
         <li>
             <a href="#pameran" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>PAMERAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="pameran" class="collapse ">
@@ -91,6 +94,8 @@ if ($_SESSION['username']=='') {
                 </ul>
             </div>
         </li>
+    <?php } ?>
+    <?php if ($level == 'ADMIN' || $level == 'DESA'){ ?>
         <li>
             <a href="#pelatihan" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>PELATIHAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="pelatihan" class="collapse ">
@@ -100,6 +105,7 @@ if ($_SESSION['username']=='') {
                 </ul>
             </div>
         </li>
+    <?php } ?>
         <!-- <li class="">
             <a href="../listrik/v_listrik.php">
                 <i class="fa fa-folder text-aqua"></i><span>LISTRIK</span>
@@ -112,6 +118,7 @@ if ($_SESSION['username']=='') {
                 <span class="pull-right-container"></span>
             </a>
         </li> -->
+        <?php if ($level == 'ADMIN'){ ?>
         <li>
             <a href="#kategori" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>KATEGORI</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="kategori" class="collapse ">
@@ -121,12 +128,14 @@ if ($_SESSION['username']=='') {
                 </ul>
             </div>
         </li>
+    <?php } ?>
         <!-- <li class="">
             <a href="../pkppk/v_pkppk.php">
                 <i class="fa fa-folder text-aqua"></i><span>PKPPK</span>
                 <span class="pull-right-container"></span>
             </a>
         </li> -->
+        <?php if ($level == 'ADMIN'){ ?>
         <li>
             <a href="#customer" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>CUSTOMER</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="customer" class="collapse ">
@@ -136,27 +145,46 @@ if ($_SESSION['username']=='') {
                 </ul>
             </div>
         </li>
+    <?php } ?>
         <!-- <li class="">
             <a href="../amc/v_amc.php">
                 <i class="fa fa-folder text-aqua"></i><span>AMC</span>
                 <span class="pull-right-container"></span>
             </a>
         </li> -->
+        <?php if ($level == 'ADMIN' || $level == 'DESA'){ ?>
         <li>
             <a href="#laporan" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>LAPORAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="laporan" class="collapse ">
                 <ul class="nav">
                     <li><a href="../laporan/laporan_transaksi.php" class=""><i class="fa fa-list"></i> &nbsp Laporan Transaksi</a></li>
+                    <li><a href="../laporan/laporan_produk.php" class=""><i class="fa fa-list"></i> &nbsp Laporan Produk</a></li>
+                    <li><a href="../laporan/laporan_ukm.php" class=""><i class="fa fa-list"></i> &nbsp Laporan UKM</a></li>
+                    <li><a href="../laporan/laporan_pameran.php" class=""><i class="fa fa-list"></i> &nbsp Laporan Pameran</a></li>
+                    <li><a href="../laporan/laporan_pelatihan.php" class=""><i class="fa fa-list"></i> &nbsp Laporan Pelatihan</a></li>
                     <!-- <li><a href="#" class=""><i class="fa fa fa-desktop text-aqua"></i> &nbsp Monitoring</a></li> -->
                 </ul>
             </div>
         </li>
+    <?php } ?>
+    <?php if ($level == 'UKM'){ ?>
+        <li>
+            <a href="#laporan" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>LAPORAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+            <div id="laporan" class="collapse ">
+                <ul class="nav">
+                    <li><a href="../laporan/laporan_ukm.php" class=""><i class="fa fa-list"></i> &nbsp Laporan UKM</a></li>
+                </ul>
+            </div>
+        </li>
+    <?php } ?>
+    <?php if ($level == 'ADMIN'){ ?>
         <li class="">
             <a href="../admin/v_admin.php">
                 <i class="fa fa-user-o text-aqua"></i><span>ADMIN</span>
                 <span class="pull-right-container"></span>
             </a>
         </li>
+    <?php } ?>
         <!-- <li class="">
             <a href="#">
                 <i class="fa fa fa-cog text-aqua"></i><span>Ganti Password</span>
@@ -179,11 +207,4 @@ if ($_SESSION['username']=='') {
     </section>
     <!-- /.sidebar -->
 </aside>
-
-  <?php 
-}
-?>
-
-<?php
-}
-?>
+<?php } ?>

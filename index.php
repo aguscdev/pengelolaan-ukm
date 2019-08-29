@@ -41,6 +41,18 @@ include 'config/koneksi.php';
                 <li><a href="product.php">Accessories</a></li>
               </ul>
             </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pelatihan <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="pelatihan/v_add_pelatihan.php">Tambah Pelatihan</a></li>
+                <li><a href="pelatihan/v_pelatihan.php">List Pelatihan</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pameran <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="pameran/v_add_pameran.php">Tambah Pameran</a></li>
+                <li><a href="pameran/v_pameran.php">List Pameran</a></li>
+              </ul>
+            </li>
           </ul>
           <form class="navbar-form navbar-left" target="_self" method="GET" action="search.php">
             <div class="form-group">
@@ -56,7 +68,7 @@ include 'config/koneksi.php';
                  echo '<a class="btn btn-default action-button" href="logout.php"><i class="glyphicon glyphicon -log-out"></i> Logout</a>';
               }
               else {
-                echo '<a  class="btn btn-default action-button" href="admin/login.php"><i class="glyphicon glyphicon-shopping-cart"></i> Login Admin</a>';
+                echo '<a  class="btn btn-default action-button" href="admin/login.php"><i class="glyphicon glyphicon-user"></i> Login Admin</a>';
                 // echo '<a class="btn btn-default action-button" href="../../admin/login.php"><i class="glyphicon glyphicon glyphicon-user"></i> Login Admin</a>';
                 echo '<a class="btn btn-default action-button" href="daftar.php"><i class="glyphicon glyphicon -log-out"></i> Daftar</a>';
                 echo '<a class="btn btn-default action-button" href="login.php"><i class="glyphicon glyphicon-log-in"></i> Login</a>';

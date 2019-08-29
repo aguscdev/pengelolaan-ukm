@@ -43,6 +43,8 @@ if ($_SESSION['username']=='') {
                     <label for="sel1">Hak Akses:</label>
                     <select name="level" class="form-control" id="sel1">
                         <option>ADMIN</option>
+                        <option>DESA</option>
+                        <option>UKM</option>
                     </select> 
                 </div>
                 <button type="submit" class="btn btn-info">Simpan</button>

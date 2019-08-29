@@ -16,9 +16,12 @@ if ($_SESSION['username']=='') {
 	if ($level =='ADMIN') {
 		header('location:home/home.php');
 	}
-	// elseif ($level=='USER') {
-	// 	header('location:../user/home/home.php');
-	// }
+	elseif ($level=='DESA') {
+		header('location:home/home.php');
+	}
+	elseif ($level=='UKM') {
+		header('location:home/home.php');
+	}
 }
 
 ?>
