@@ -34,11 +34,11 @@ include 'config/koneksi.php';
           <ul class="nav navbar-nav">
             <!-- <li class="#" role="presentation"><a class="navbar-link login" href="admin/login.php"><i class="glyphicon glyphicon glyphicon-user"></i> Login Admin</a></li> -->
             <li class="active" role="presentation"><a href="index.php">Home</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">All Catagories <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Semua Kategori<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="product.php">Smart Phones</a></li>
-                <li><a href="product.php">Laptops</a></li>
-                <li><a href="product.php">Accessories</a></li>
+                <li><a href="product.php">Kerupuk</a></li>
+                <li><a href="product.php">Keripik</a></li>
+                <!-- <li><a href="product.php">Accessories</a></li> -->
               </ul>
             </li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pelatihan <span class="caret"></span></a>
@@ -133,19 +133,19 @@ include 'config/koneksi.php';
             <!--========= 1st slide =========-->
             <div class="item active">
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                  <a href="product.php"><img src="assets/img/produk/android.jpeg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img1.jpg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Smart Phones</a></h5>
+                     <h5><a href="product.php">Keripik</a></h5>
                      <hr>
-                     <h6>Android</h6>
+                     <h6>Keripik ori</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
-                  <a href="product.php"><img src="assets/img/produk/Apple_iPhone6_Reuters.jpg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img2.jpg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Smart Phones</a></h5>
+                     <h5><a href="product.php">Keripik</a></h5>
                      <hr>
-                     <h6>IOS</h6>
+                     <h6>Keripik Pedas</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">

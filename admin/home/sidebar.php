@@ -73,7 +73,7 @@ if ($_SESSION['username']=='') {
             </div>
         </li>
         <?php } ?>
-        <?php if ($level == 'ADMIN' || $level == 'UKM' || $level == 'DESA'){ ?>
+        <?php if ($level == 'ADMIN' || $level == 'UKM'){ ?>
         <li>
             <a href="#ukm" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>UKM</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="ukm" class="collapse ">
@@ -84,7 +84,7 @@ if ($_SESSION['username']=='') {
             </div>
         </li>
          <?php } ?>
-         <?php if ($level == 'ADMIN' || $level == 'DESA'){ ?>
+         <?php if ($level == 'ADMIN'){ ?>
         <li>
             <a href="#pameran" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>PAMERAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="pameran" class="collapse ">
@@ -95,7 +95,7 @@ if ($_SESSION['username']=='') {
             </div>
         </li>
     <?php } ?>
-    <?php if ($level == 'ADMIN' || $level == 'DESA'){ ?>
+    <?php if ($level == 'ADMIN'){ ?>
         <li>
             <a href="#pelatihan" data-toggle="collapse" class="collapsed"><i class="fa fa-folder text-aqua"></i> <span>PELATIHAN</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
             <div id="pelatihan" class="collapse ">

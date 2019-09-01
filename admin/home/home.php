@@ -27,6 +27,7 @@ include 'header.php'; ?>
             Dashboard <?php echo $_SESSION["username"]; ?>
           </h1><br/>
           <div class="row">
+             <?php if ($level == 'ADMIN'){ ?>
             <div class="col-lg-3 col-xs-6">
               <div class="small-box bg-aqua">
                 <div class="inner">
@@ -103,8 +104,9 @@ include 'header.php'; ?>
               </div>
             </div>
           </div>
-
+        <?php } ?>
           <!-- chart -->
+           <?php if ($level == 'ADMIN'){ ?>
           <div class="box box-succes">
             <div class="box-header with-border">
               <h3 class="box-title">Grafik Transaksi</h3>
@@ -116,7 +118,7 @@ include 'header.php'; ?>
             </div>
             <div class="box-body">
               <div class="chart">
-                <canvas id="barChart" style="height:230px"></canvas>
+                <canvas id="barChart" style="height:230px"></canvas><?php } ?>
               </div>
             </div>
             <!-- box body -->
@@ -126,7 +128,6 @@ include 'header.php'; ?>
       </div>
     </div>
   </div>
-
 
 <script>
     var ctx = document.getElementById("barChart").getContext('2d');
