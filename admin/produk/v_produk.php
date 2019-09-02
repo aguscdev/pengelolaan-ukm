@@ -31,6 +31,7 @@ if ($_SESSION['username']=='') {
                     <table id="dtUser" class="table table-bordered">
                         <thead>
                             <th>Produk Id</th>
+                            <th>Kategori Id</th>
                             <th>Nama Produk</th>
                             <th>Deskripsi</th>
                             <th>Harga</th>
@@ -47,6 +48,7 @@ if ($_SESSION['username']=='') {
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
+                                <td><?php echo $d['kategori_id']; ?></td>
                                 <td><?php echo $d['nama_produk']; ?></td>
                                 <td><?php echo $d['deskripsi']; ?></td>
                                 <td><?php echo $d['harga']; ?></td>

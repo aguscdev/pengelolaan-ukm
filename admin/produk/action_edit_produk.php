@@ -2,6 +2,7 @@
 	include "../../config/koneksi.php";
  
 	$nama_produk = $_POST["nama_produk"];
+	$kategori = $_POST["kategori_id"];
 	$deskripsi = $_POST["deskripsi"];
 	$harga = $_POST["harga"];
 	$qty = $_POST["qty"];
@@ -14,7 +15,7 @@
 	move_uploaded_file($gambar_file);
  
 	// query sql
-	$sql = "UPDATE produk SET nama_produk='$nama_produk',deskripsi='$deskripsi', harga='$harga',qty='$qty', foto='$gambar_file' WHERE id_produk='$id_produk'";
+	$sql = "UPDATE produk SET nama_produk='$nama_produk',kategori_id='$kategori',deskripsi='$deskripsi', harga='$harga',qty='$qty', foto='$gambar_file' WHERE id_produk='$id_produk'";
 	// var_dump($sql);
 	// die;
 						

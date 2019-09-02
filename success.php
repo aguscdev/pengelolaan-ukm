@@ -6,36 +6,57 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 include 'config/koneksi.php';
-
+$query = mysqli_query($koneksi,"SELECT * FROM kategori ORDER BY kategori_id ASC");
+$query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC");
 ?>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peneglolaan UKM</title>
+<head>
+  <title>Peneglolaan UKM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/include/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/include/style.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/include/style.css">
     <link rel="stylesheet" type="text/css" href="assets/include/display.css">
-  </head>
-  <body>
-
-    <div class="header-blue">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  .background-color {
+    background-color:#ffffff;
+  }
+</style>
+</head>
+<body class="background-color">
+   <div class="header-blue">
     <nav class="navbar navbar-default navigation-clean-search">
       <div class="container">
         <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php">Kelola-UKM</a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
         </div>
         <div class="collapse navbar-collapse" id="navcol-1">
           <ul class="nav navbar-nav">
+            <!-- <li class="#" role="presentation"><a class="navbar-link login" href="admin/login.php"><i class="glyphicon glyphicon glyphicon-user"></i> Login Admin</a></li> -->
             <li class="active" role="presentation"><a href="index.php">Home</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">All Catagories <span class="caret"></span></a>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Semua Kategori<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="product.php">Smart Phones</a></li>
-                <li><a href="product.php">Laptops</a></li>
-                <li><a href="product.php">Accessories</a></li>
+                <?php if(mysqli_num_rows($query)) { ?>
+                  <?php while ($d = mysqli_fetch_array($query)) { ?>
+                <li><a href="kategori.php?kategory=<?php echo $d["kategori_id"]; ?>"><?php echo $d["nama_kategori"]; ?></a></li>
+              <?php   }  ?>
+              <?php } ?>
+                <!-- <li><a href="product.php">Keripik</a></li> -->
+                <!-- <li><a href="product.php">Accessories</a></li> -->
               </ul>
             </li>
-            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><?php echo "Hi,".$_SESSION["username"]; ?></a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pelatihan <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="pelatihan/v_add_pelatihan.php">Tambah Pelatihan</a></li>
+                <li><a href="pelatihan/v_pelatihan.php">List Pelatihan</a></li>
+              </ul>
+            </li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pameran <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="pameran/v_add_pameran.php">Tambah Pameran</a></li>
+                <li><a href="pameran/v_pameran.php">List Pameran</a></li>
+              </ul>
             </li>
           </ul>
           <form class="navbar-form navbar-left" target="_self" method="GET" action="search.php">

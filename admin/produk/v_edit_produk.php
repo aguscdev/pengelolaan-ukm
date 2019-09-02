@@ -40,10 +40,30 @@ if ($_SESSION['username']=='') {
         			    <input type="hidden" name="id_produk" value="<?php echo $d['id_produk']; ?>">
         			    <input type="text" name="id_produk" class="form-control" id="id_produk" value="<?php echo $d['id_produk']; ?>" required disabled="">
         			</div>
-        			<div class="form-group">
-        			    <label for="nama">Name Produk</label>
-        			    <input type="text" name="nama_produk" class="form-control" id="nama_produk" value="<?php echo $d['nama_produk']; ?>" required>
-        			</div>
+              <?php } ?>
+              <div class="form-group">
+                  <label for="kategori">kategori:</label>
+                  <select name="kategori_id" class="form-control" required>
+                    <option value="">-- Pilih --</option>
+                    <?php
+                     include '../../config/koneksi.php';
+                     $query = mysqli_query($koneksi,"SELECT * FROM kategori");
+                    while($data=mysqli_fetch_array($query)) { ?>
+                    <option value="<?php echo $data['kategori_id']; ?>"><?php echo $data['nama_kategori']; ?></option>
+                    <?php
+                    } ?>
+                  </select>
+                </div>
+                <?php
+                  include '../../config/koneksi.php';
+                  $id_produk = $_GET['id_produk'];
+                  $data = mysqli_query($koneksi,"select * from produk where id_produk='$id_produk'");
+                  while($d = mysqli_fetch_array($data)){
+                  ?>
+                <div class="form-group">
+                  <label for="nama">Name Produk</label>
+                  <input type="text" name="nama_produk" class="form-control" id="nama_produk" value="<?php echo $d['nama_produk']; ?>" required>
+              </div>
               <div class="form-group">
                   <label for="deskripsi">Deskripsi</label>
                   <input type="text" name="deskripsi" class="form-control" id="deskripsi" value="<?php echo $d['deskripsi']; ?>" required>

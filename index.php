@@ -6,7 +6,8 @@
 if(session_id() == '' || !isset($_SESSION)){session_start();}
 
 include 'config/koneksi.php';
-
+$query = mysqli_query($koneksi,"SELECT * FROM kategori ORDER BY kategori_id ASC");
+$query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC");
 ?>
 <head>
   <title>Peneglolaan UKM</title>
@@ -36,8 +37,12 @@ include 'config/koneksi.php';
             <li class="active" role="presentation"><a href="index.php">Home</a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Semua Kategori<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="product.php">Kerupuk</a></li>
-                <li><a href="product.php">Keripik</a></li>
+                <?php if(mysqli_num_rows($query)) { ?>
+                  <?php while ($d = mysqli_fetch_array($query)) { ?>
+                <li><a href="kategori.php?kategory=<?php echo $d["kategori_id"]; ?>"><?php echo $d["nama_kategori"]; ?></a></li>
+              <?php   }  ?>
+              <?php } ?>
+                <!-- <li><a href="product.php">Keripik</a></li> -->
                 <!-- <li><a href="product.php">Accessories</a></li> -->
               </ul>
             </li>

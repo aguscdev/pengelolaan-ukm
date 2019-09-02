@@ -1,6 +1,6 @@
 <?php
 	include "../../config/koneksi.php";
- 
+ 	$kategori = $_POST["kategori_id"];
 	$nama_produk = $_POST["nama_produk"];
 	$deskripsi = $_POST["deskripsi"];
 	$harga = $_POST["harga"];
@@ -11,7 +11,7 @@
 	$imageFileType = strtolower(pathinfo($gambar_file,PATHINFO_EXTENSION));
  
 	// query sql
-	$sql = "INSERT INTO produk (nama_produk,deskripsi,harga,qty,foto) VALUES ('$nama_produk','$deskripsi','$harga','$qty','$gambar_file')";
+	$sql = "INSERT INTO produk (kategori_id,nama_produk,deskripsi,harga,qty,foto) VALUES ('$kategori','$nama_produk','$deskripsi','$harga','$qty','$gambar_file')";
 	$query = mysqli_query($koneksi, $sql);
 
 	move_uploaded_file($_FILES["foto"]["tmp_name"],$gambar_file);
