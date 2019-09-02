@@ -40,7 +40,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
               <ul class="dropdown-menu" role="menu">
                 <?php if(mysqli_num_rows($query)) { ?>
                   <?php while ($d = mysqli_fetch_array($query)) { ?>
-                <li><a href="../product.php?kategory=<?php echo $d["kategori_id"]; ?>"><?php echo $d["nama_kategori"]; ?></a></li>
+                <li><a href="../kategori.php?kategory=<?php echo $d["kategori_id"]; ?>"><?php echo $d["nama_kategori"]; ?></a></li>
               <?php   }  ?>
               <?php } ?>
                 <!-- <li><a href="product.php">Keripik</a></li> -->
