@@ -1,0 +1,377 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 03, 2019 at 11:57 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.0.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `umkm`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(55) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `nama`, `username`, `password`, `level`) VALUES
+(1, 'Agus Cahyadi', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ADMIN'),
+(2, 'eko', 'ukm', 'e530f0bdad294cb3581855e5f839a8c0', 'UKM'),
+(3, 'Rohman', 'desa', 'e54cc06625bbadf12163b41a3cb92bf8', 'DESA'),
+(4, 'Batu bara', 'vina', 'e7bb4f7ed097bd6ccefc46018fda32c8', 'UKM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `kategori_id` int(11) NOT NULL,
+  `nama_kategori` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`kategori_id`, `nama_kategori`) VALUES
+(1, 'keripik'),
+(2, 'kerupuk');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `laporan`
+--
+
+CREATE TABLE `laporan` (
+  `id_laporan` int(11) NOT NULL,
+  `id_produk` int(3) NOT NULL,
+  `nama_produk` varchar(100) NOT NULL,
+  `harga` varchar(10) NOT NULL,
+  `omset` varchar(10) NOT NULL,
+  `waktu` time NOT NULL,
+  `tahun` year(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `nama_produk` varchar(255) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `units` int(5) NOT NULL,
+  `total` int(15) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `nama_produk`, `deskripsi`, `harga`, `units`, `total`, `date`, `email`) VALUES
+(24, 'Kamera', 'canon D600', 350000, 1, 350000, '2019-08-11 10:16:51', 'pujiyati'),
+(25, 'Kamera', 'canon D600', 350000, 1, 350000, '2019-08-11 10:22:39', 'pujiyati'),
+(26, 'Kamera', 'canon D600', 350000, 1, 350000, '2019-08-11 10:23:22', 'pujiyati'),
+(27, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:24:36', 'pujiyati'),
+(28, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:25:49', 'pujiyati'),
+(29, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:26:06', 'pujiyati'),
+(30, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:26:58', 'pujiyati'),
+(31, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:37:48', 'pujiyati'),
+(32, 'Baju', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 500000, 1, 500000, '2019-08-11 10:50:15', 'pujiyati'),
+(33, 'Baju cewe', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 550000, 1, 550000, '2019-08-11 10:51:02', 'agus'),
+(34, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:03:32', 'pujiyati'),
+(35, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:04:07', 'agus'),
+(36, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:17:28', 'agus'),
+(37, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:29:02', 'agus'),
+(38, 'Baju cewe', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 550000, 1, 550000, '2019-08-12 03:19:38', 'agus'),
+(39, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 6, 1200000, '2019-08-13 03:22:54', 'agus'),
+(40, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 5, 1000000, '2019-08-13 03:24:06', 'agus'),
+(41, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 5, 1000000, '2019-08-13 03:26:49', 'agus'),
+(42, 'Baju', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 500000, 1, 500000, '2019-08-13 03:36:41', 'agus'),
+(43, 'Strika', 'Elektonik import dari jepang', 350000, 1, 350000, '2019-08-13 03:38:14', 'pujiyati'),
+(44, 'Baju cewe', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 550000, 1, 550000, '2019-08-14 10:36:28', 'vina');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pameran`
+--
+
+CREATE TABLE `pameran` (
+  `id_pameran` int(11) NOT NULL,
+  `nama_pameran` varchar(255) NOT NULL,
+  `tempat` varchar(255) NOT NULL,
+  `waktu` time NOT NULL,
+  `peserta` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pameran`
+--
+
+INSERT INTO `pameran` (`id_pameran`, `nama_pameran`, `tempat`, `waktu`, `peserta`) VALUES
+(1, 'Bazar', 'Tangerang', '12:04:00', '150'),
+(4, 'Photografi', 'Bandung', '09:00:00', '100'),
+(5, 'Agus', 'Tangerang', '12:00:00', '11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pelatihan`
+--
+
+CREATE TABLE `pelatihan` (
+  `id_pelatihan` int(11) NOT NULL,
+  `nama_pelatihan` varchar(255) NOT NULL,
+  `tempat` varchar(255) NOT NULL,
+  `waktu` date NOT NULL,
+  `peserta` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pelatihan`
+--
+
+INSERT INTO `pelatihan` (`id_pelatihan`, `nama_pelatihan`, `tempat`, `waktu`, `peserta`) VALUES
+(3, 'Traning Kuliner2', 'Tangerang2', '2019-07-25', '152'),
+(4, 'Traning Otomotif2', 'Jakarta2', '2019-07-25', '502'),
+(5, 'Agus', 'Tangerang', '2019-08-29', '12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `produk`
+--
+
+CREATE TABLE `produk` (
+  `id_produk` int(11) NOT NULL,
+  `kategori_id` varchar(12) NOT NULL,
+  `nama_produk` varchar(70) NOT NULL,
+  `deskripsi` varchar(255) NOT NULL,
+  `harga` varchar(6) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `foto` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `kategori_id`, `nama_produk`, `deskripsi`, `harga`, `qty`, `foto`) VALUES
+(22, '2', 'Kerupuk Ikan', 'Kerupuk ikan khas tangerang Indonesia, kerupuk terenak. dan terjangkau bagi semua kalangan.', '2000', 25, 'img/img12.jpeg'),
+(23, '1', 'Keripik Singkong', 'Keripik Singkong khas indonesia sangat terasa bumbu, enak untuk dimakan di saat santai.', '5000', 30, 'img/img7.jpeg'),
+(24, '1', 'Keripik manis', 'Keripik manis khas Garut terasa bumbu, enak untuk dimakan di saat santai, bersama keluarga dan teman.', '10000', 24, 'img/img10.jpeg'),
+(25, '1', 'keripik pedas', 'Keripik pedas khas Padang sangat terasa bumbu-bumbu original.', '5000', 34, 'img/img7.jpeg'),
+(26, '2', 'Kerupuk Ikan Tenggiri', 'Kerupuk ikan Tenggiri khas tangerang Indonesia, kerupuk terenak. dan terjangkau bagi semua kalangan.', '5000', 25, 'img/img12.jpeg'),
+(27, '1', 'keripik Original', 'Keripik Original khas Palembang, Enak untuk di makan di saat berkumpul keluarga', '10000', 50, 'img/img5.jpeg'),
+(28, '2', 'Kerupuk Padang', 'Kerupuk ikan khas padang Indonesia, kerupuk terenak. dan terjangkau bagi semua kalangan.', '10000', 50, 'img/img6.jpeg'),
+(29, '1', 'keripik Kentang', 'Keripik kentang khas indonesia sangat terasa bumbu, yang khas dari rempah-rempah Indonesia', '10000', 32, 'img/img9.jpeg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ukm`
+--
+
+CREATE TABLE `ukm` (
+  `id_ukm` int(11) NOT NULL,
+  `id_produk` varchar(12) NOT NULL,
+  `nama_ukm` varchar(30) NOT NULL,
+  `milik` varchar(50) NOT NULL,
+  `alamat` varchar(70) NOT NULL,
+  `no_telp` varchar(13) NOT NULL,
+  `photo` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ukm`
+--
+
+INSERT INTO `ukm` (`id_ukm`, `id_produk`, `nama_ukm`, `milik`, `alamat`, `no_telp`, `photo`) VALUES
+(15, '21', 'Vina industri', 'vina home', 'Tangerang', '12345', 'img/pp.jpg'),
+(16, '21', 'Vina industri2', 'Agus Cahyadi', 'Rajeg, Tangerang', '234', 'img/agus.jpeg'),
+(17, '21', 'agus home', 'Agus Cahyadi', 'Tangerang', '324536475', 'img/pp.jpg'),
+(18, '23', 'Vina industri', 'vina', 'Cisoka, Tangerang', '085633441565', 'img/pp.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `no_telp` varchar(13) NOT NULL,
+  `pass` char(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `email`, `alamat`, `no_telp`, `pass`) VALUES
+(1, 'pujiyati', 'pujiyati@gmail.com', 'Rajeg, Tangerang', '085693231030', '83d4bf0a6c7e'),
+(2, 'agus', 'agus@gmail.com', 'Jakarta', '085778783602', 'fdf169558242'),
+(3, 'eko', 'eko@gmail.com', 'Jakarta', '085777888866', 'e5ea9b6d7108'),
+(4, 'clara', 'clara@gmail.com', 'Tangerang', '085778783602', '23d1e10df85e'),
+(5, 'andi', 'andi@gmail.com', 'ciamis', '085778783602', 'ce0e5bf55e4f'),
+(6, 'anis', 'anis@gmail.com', 'tangerang', '097654345678', '38a1ffb5ccad'),
+(7, 'vina', 'vina@gmail.com', 'BLRJ', '098767544532', 'e7bb4f7ed097');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`kategori_id`);
+
+--
+-- Indexes for table `laporan`
+--
+ALTER TABLE `laporan`
+  ADD PRIMARY KEY (`id_laporan`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pameran`
+--
+ALTER TABLE `pameran`
+  ADD PRIMARY KEY (`id_pameran`);
+
+--
+-- Indexes for table `pelatihan`
+--
+ALTER TABLE `pelatihan`
+  ADD PRIMARY KEY (`id_pelatihan`);
+
+--
+-- Indexes for table `produk`
+--
+ALTER TABLE `produk`
+  ADD PRIMARY KEY (`id_produk`);
+
+--
+-- Indexes for table `ukm`
+--
+ALTER TABLE `ukm`
+  ADD PRIMARY KEY (`id_ukm`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `laporan`
+--
+ALTER TABLE `laporan`
+  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `pameran`
+--
+ALTER TABLE `pameran`
+  MODIFY `id_pameran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `pelatihan`
+--
+ALTER TABLE `pelatihan`
+  MODIFY `id_pelatihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `produk`
+--
+ALTER TABLE `produk`
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `ukm`
+--
+ALTER TABLE `ukm`
+  MODIFY `id_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -27,6 +27,19 @@ if ($_SESSION['username']=='') {
             <div class="panel-heading">Tambah UKM</div>
             <div class="panel-body">
             <form method="post" action="action_add_ukm.php" enctype="multipart/form-data">
+              <div class="form-group">
+                  <label for="produk">Produk:</label>
+                  <select name="id_produk" class="form-control" required>
+                    <option value="">-- Pilih --</option>
+                    <?php
+                     include '../../config/koneksi.php';
+                     $query = mysqli_query($koneksi,"SELECT * FROM produk");
+                    while($data=mysqli_fetch_array($query)) { ?>
+                    <option value="<?php echo $data['id_produk']; ?>"><?php echo $data['nama_produk']; ?></option>
+                    <?php
+                    } ?>
+                  </select>
+                </div>
                 <div class="form-group">
                     <label for="ukm">Nama UKM:</label>
                     <input type="text" name="nama_ukm" class="form-control" id="ukm" required>
@@ -45,7 +58,7 @@ if ($_SESSION['username']=='') {
                 </div>
                 <div class="form-group">
                     <label for="alamat">Foto:</label>
-                    <input type="file" name="foto" class="form-control" id="foto" required>
+                    <input type="file" name="photo" class="form-control" id="foto" required>
                 </div>
                 <button type="submit" name="submit" value="Upload Image" class="btn btn-info">Simpan</button>
                 <a class="btn btn-danger" href="v_ukm.php">Batal</a>

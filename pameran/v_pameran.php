@@ -36,6 +36,13 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
           <ul class="nav navbar-nav">
             <!-- <li class="#" role="presentation"><a class="navbar-link login" href="admin/login.php"><i class="glyphicon glyphicon glyphicon-user"></i> Login Admin</a></li> -->
             <li class="active" role="presentation"><a href="../index.php">Home</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">UKM <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="../daftar_ukm.php">Registrasi UKM</a></li>
+                <li><a href="../admin/login.php">Login UKM</a></li>
+                <!-- <li><a href="../index.php">List UKM</a></li> -->
+              </ul>
+            </li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Semua Kategori<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <?php if(mysqli_num_rows($query)) { ?>

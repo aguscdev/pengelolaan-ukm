@@ -1,19 +1,20 @@
 <?php
 	include "../../config/koneksi.php";
  
+ 	$produk = $_POST["id_produk"];
 	$nama_ukm = $_POST["nama_ukm"];
 	$milik = $_POST["milik"];
 	$alamat = $_POST["alamat"];
 	$no_telp = $_POST["no_telp"];
 	// $foto = $_POST["foto"];
 	$gambar = "img/";
-	$gambar_file = $gambar . basename($_FILES["foto"]["name"]);
+	$gambar_file = $gambar . basename($_FILES["photo"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($gambar_file,PATHINFO_EXTENSION));
-	move_uploaded_file($_FILES["foto"]["tmp_name"],$gambar_file);
+	move_uploaded_file($_FILES["photo"]["tmp_name"],$gambar_file);
  
 	// query sql
-	$sql = "INSERT INTO ukm (nama_ukm,milik,alamat,no_telp,foto) VALUES ('$nama_ukm','$milik','$alamat','$no_telp','$gambar_file')";
+	$sql = "INSERT INTO ukm (id_produk,nama_ukm,milik,alamat,no_telp,photo) VALUES ('$produk','$nama_ukm','$milik','$alamat','$no_telp','$gambar_file')";
 	$query = mysqli_query($koneksi, $sql);
 	// var_dump($sql);
 	// var_dump($_FILES);

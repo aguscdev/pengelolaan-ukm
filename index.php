@@ -35,6 +35,13 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
           <ul class="nav navbar-nav">
             <!-- <li class="#" role="presentation"><a class="navbar-link login" href="admin/login.php"><i class="glyphicon glyphicon glyphicon-user"></i> Login Admin</a></li> -->
             <li class="active" role="presentation"><a href="index.php">Home</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">UKM <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="daftar_ukm.php">Registrasi UKM</a></li>
+                <li><a href="admin/login.php">Login UKM</a></li>
+                <!-- <li><a href="index.php">List UKM</a></li> -->
+              </ul>
+            </li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Semua Kategori<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <?php if(mysqli_num_rows($query)) { ?>
@@ -98,19 +105,19 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
     <div class="carousel-inner">
 
       <div class="item active">
-      <a href="product.php"><img src="assets/img/oppo.jpg" style="width:100%;"></a>
+      <a href="product.php"><img src="img/keripik.jpg" style="width:100%;"></a>
       <div class="carousel-caption">
       </div>
       </div>
 
       <div class="item">
-      <a href="product.php"><img src="assets/img/headphones.jpg" style="width:100%;"></a>
+      <a href="product.php"><img src="img/kerupuk.jpg" style="width:100%;"></a>
       <div class="carousel-caption">
 
       </div>
       </div>
       <div class="item">
-      <a href="product.php"><img src="assets/img/oppo.jpg" style="width:100%;"></a>
+      <a href="product.php"><img src="img/keripik.jpg" style="width:100%;"></a>
       <div class="carousel-caption">
       
       </div>
@@ -138,7 +145,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
             <!--========= 1st slide =========-->
             <div class="item active">
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                  <a href="product.php"><img src="assets/img/produk/img1.jpg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img6.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
                      <h5><a href="product.php">Keripik</a></h5>
                      <hr>
@@ -146,7 +153,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
-                  <a href="product.php"><img src="assets/img/produk/img2.jpg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img7.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
                      <h5><a href="product.php">Keripik</a></h5>
                      <hr>
@@ -154,89 +161,89 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">
-                  <a href="product.php"><img src="assets/img/produk/black.jpeg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img3.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Smart Phones</a></h5>
+                     <h5><a href="product.php">Keripik</a></h5>
                      <hr>
-                     <h6>BlackBerry</h6>
+                     <h6>Keripik pedas</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-3">
-                  <a href="product.php"><img src="assets/img/produk/windows.jpeg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img4.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Smart Phones</a></h5>
+                     <h5><a href="product.php">Kerupuk</a></h5>
                      <hr>
-                     <h6>Windows</h6>
+                     <h6>Kerupuk Ikan</h6>
                   </div>
                </div>
             </div>
             <!--========= 2nd slide =========-->
             <div class="item">
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                  <a href="product.php"><img src="assets/img/produk/hp.jpg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img5.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Laptops</a></h5>
+                     <h5><a href="product.php">Kerupuk</a></h5>
                      <hr>
-                     <h6>HP</h6>
+                     <h6>Kerupuk Putih</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
-                  <a href="product.php"><img src="assets/img/produk/mac.jpg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img7.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Laptops</a></h5>
+                     <h5><a href="product.php">Keripik</a></h5>
                      <hr>
-                     <h6>MAC</h6>
+                     <h6>Keripik Kentang</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">
-                  <a href="product.php"><img src="assets/img/produk/sony.jpeg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img6.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Laptops</a></h5>
+                     <h5><a href="product.php">Keripik</a></h5>
                      <hr>
-                     <h6>Sony</h6>
+                     <h6>Keripik Ubi</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-3">
-                  <a href="product.php"><img src="assets/img/produk/dell.jpg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img8.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Laptops</a></h5>
+                     <h5><a href="product.php">Kerupuk</a></h5>
                      <hr>
-                     <h6>Dell</h6>
+                     <h6>Kerupuk Jablay</h6>
                   </div>
                </div>
             </div>
             <!--========= 3rd slide =========-->
             <div class="item">
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                  <a href="product.php"><img src="assets/img/produk/hard.jpeg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img9.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Accessorries</a></h5>
+                     <h5><a href="product.php">Keripik</a></h5>
                      <hr>
-                     <h6>Hard Drives</h6>
+                     <h6>Keripik Manis</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
-                  <a href="product.php"><img src="assets/img/produk/head.jpeg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img10.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Accessorries</a></h5>
+                     <h5><a href="product.php">Kerupuk</a></h5>
                      <hr>
-                     <h6>Head Phones</h6>
+                     <h6>Kerupuk Ikan</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">
-                  <a href="product.hp"><img src="assets/img/produk/power.jpeg" alt="slider 02"></a>
+                  <a href="product.hp"><img src="assets/img/produk/img11.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Accessorries</a></h5>
+                     <h5><a href="product.php">Keripik</a></h5>
                      <hr>
-                     <h6>Power Banks</h6>
+                     <h6>Keripik Kentang</h6>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-3">
-                  <a href="product.php"><img src="assets/img/produk/keyboard.jpg" alt="slider 02"></a>
+                  <a href="product.php"><img src="assets/img/produk/img12.jpeg" alt="slider 02"></a>
                   <div class="team_columns_item_caption">
-                     <h5><a href="product.php">Accessorries</a></h5>
+                     <h5><a href="product.php">Kerupuk</a></h5>
                      <hr>
-                     <h6>Keyboards</h6>
+                     <h6>Kerupuk manis</h6>
                   </div>
                </div>
             </div>

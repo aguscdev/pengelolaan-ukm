@@ -31,8 +31,8 @@ if ($_SESSION['username']=='') {
                     <table id="dtUser" class="table table-bordered">
                         <thead>
                             <th>Produk Id</th>
-                            <th>Kategori Id</th>
-                            <th>Nama Produk</th>
+                            <th>Kategori</th>
+                            <th>Nama UKM</th>
                             <th>Deskripsi</th>
                             <th>Harga</th>
                             <th>QTY</th>
@@ -43,12 +43,12 @@ if ($_SESSION['username']=='') {
                             <?php
                                 include '../../config/koneksi.php';
                                 $no = 1;
-                                $data = mysqli_query($koneksi,"select * from produk");
+                                $data = mysqli_query($koneksi,"SELECT * FROM produk JOIN kategori ON produk.kategori_id=kategori.kategori_id");
                                 while($d = mysqli_fetch_array($data)) {
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo $d['kategori_id']; ?></td>
+                                <td><?php echo $d['nama_kategori']; ?></td>
                                 <td><?php echo $d['nama_produk']; ?></td>
                                 <td><?php echo $d['deskripsi']; ?></td>
                                 <td><?php echo $d['harga']; ?></td>

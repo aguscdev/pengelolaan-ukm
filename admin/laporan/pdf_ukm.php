@@ -31,7 +31,7 @@ $html = '<!DOCTYPE html>
             <td>'. $d["milik"] .'</td>
             <td>'. $d["alamat"] .'</td>
             <td>'. $d["no_telp"] .'</td>
-            <td><img src="../produk/'. $d["foto"] .'" width="50" height="50"></td> 
+            <td><img src="../ukm/'. $d["photo"] .'" width="50" height="50"></td> 
         </tr>';
      }   
 $html .= '</table>    

@@ -37,7 +37,7 @@
 			<td><?php echo $d['milik']; ?></td>
 			<td><?php echo $d['alamat']; ?></td>
 			<td><?php echo $d['no_telp']; ?></td>
-			<td><img src="../ukm/<?php echo $d['foto']; ?>" width="50" height="50"/></td> 
+			<td><img src="../ukm/<?php echo $d['photo']; ?>" width="50" height="50"/></td> 
 		</tr>
 		<?php 
 		}

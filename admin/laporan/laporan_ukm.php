@@ -64,7 +64,7 @@ if ($_SESSION['username']=='') {
 							<td><?php echo $data['milik']; ?></td>
 							<td><?php echo $data['alamat']; ?></td>
 							<td><?php echo $data['no_telp']; ?></td>
-							<td><img src="../ukm/<?php echo $data['foto']; ?>" width="50" height="50"/></td> 
+							<td><img src="../ukm/<?php echo $data['photo']; ?>" width="50" height="50"/></td> 
 						</tr>
 						<?php 
 						}

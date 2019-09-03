@@ -79,7 +79,7 @@ if ($_SESSION['username']=='') {
             <div id="ukm" class="collapse ">
                 <ul class="nav">
                     <li><a href="../ukm/v_ukm.php" class=""><i class="fa fa-list"></i> &nbsp List UKM</a></li>
-                    <!-- <li><a href="../ukm/v_add_ukm.php" class=""><i class="fa fa fa-plus text-aqua"></i> &nbsp Tambah UKM</a></li> -->
+                    <!-- <li><a href="../produk/v_produk.php" class=""><i class="fa fa fa-list"></i> &nbsp Produk UKM</a></li> -->
                 </ul>
             </div>
         </li>
@@ -173,6 +173,7 @@ if ($_SESSION['username']=='') {
             <div id="laporan" class="collapse ">
                 <ul class="nav">
                     <li><a href="../laporan/laporan_ukm.php" class=""><i class="fa fa-list"></i> &nbsp Laporan UKM</a></li>
+                    <li><a href="../laporan/laporan_produk.php" class=""><i class="fa fa-list"></i> &nbsp Laporan Produk</a></li>
                 </ul>
             </div>
         </li>

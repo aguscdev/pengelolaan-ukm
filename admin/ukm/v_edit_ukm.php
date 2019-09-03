@@ -40,6 +40,26 @@ if ($_SESSION['username']=='') {
   			    <input type="hidden" name="id_ukm" value="<?php echo $d['id_ukm']; ?>">
   			    <input type="text" name="id_ukm" class="form-control" id="id_ukm" value="<?php echo $d['id_ukm']; ?>" required disabled="">
   			</div>
+      <?php } ?>
+       <div class="form-group">
+          <label for="kategori">Produk:</label>
+          <select name="id_produk" class="form-control" required>
+            <option value="">-- Pilih --</option>
+            <?php
+             include '../../config/koneksi.php';
+             $query = mysqli_query($koneksi,"SELECT * FROM produk");
+            while($data=mysqli_fetch_array($query)) { ?>
+            <option value="<?php echo $data['id_produk']; ?>"><?php echo $data['nama_produk']; ?></option>
+            <?php
+            } ?>
+          </select>
+        </div>
+        <?php
+      include '../../config/koneksi.php';
+      $id_ukm = $_GET['id_ukm'];
+      $data = mysqli_query($koneksi,"select * from ukm where id_ukm='$id_ukm'");
+      while($d = mysqli_fetch_array($data)){
+      ?>
   			<div class="form-group">
   			    <label for="nama">Nama UKM:</label>
   			    <input type="text" name="nama_ukm" class="form-control" id="ukm" value="<?php echo $d['nama_ukm']; ?>" required>
@@ -58,7 +78,7 @@ if ($_SESSION['username']=='') {
         </div>
         <div class="form-group">
             <label for="foto">Foto:</label>
-            <input type="file" name="foto" class="form-control" id="foto" value="<?php echo $d['foto']; ?>" required>
+            <input type="file" name="photo" class="form-control" id="foto" value="<?php echo $d['foto']; ?>" required>
         </div>
         <button type="submit" class="btn btn-info">Simpan</button>
         <a class="btn btn-danger" href="v_ukm.php">Batal</a>

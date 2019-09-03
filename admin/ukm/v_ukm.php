@@ -31,6 +31,7 @@ if ($_SESSION['username']=='') {
                         <thead>
                             <th>Id UKM</th>
                             <th>Nama UKM</th>
+                            <th>Nama Produk</th>
                             <th>Milik</th>
                             <th>Alamat</th>
                             <th>No Telepon</th>
@@ -38,19 +39,20 @@ if ($_SESSION['username']=='') {
                             <th>Aksi</th>
                         </thead>
                         <tbody>
-                            <?php
+                             <?php
                                 include '../../config/koneksi.php';
                                 $no = 1;
-                                $data = mysqli_query($koneksi,"select * from ukm");
+                                $data = mysqli_query($koneksi,"SELECT * FROM ukm JOIN produk ON ukm.id_produk=produk.id_produk");
                                 while($d = mysqli_fetch_array($data)) {
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $d['nama_ukm']; ?></td>
+                                <td><a href="../ukm/v_detail_produk.php?id_produk=<?php echo $d['id_produk']; ?>"><?php echo $d['nama_produk']; ?></a></td>
                                 <td><?php echo $d['milik']; ?></td>
                                 <td><?php echo $d['alamat']; ?></td>
                                 <td><?php echo $d['no_telp']; ?></td>
-                                <td><img src="<?php echo $d['foto']; ?>" width="50" height="50"/></td> 
+                                <td><img src="<?php echo $d['photo']; ?>" width="50" height="50"/></td> 
                                 <td>
                                     <a href="v_edit_ukm.php?id_ukm=<?php echo $d['id_ukm']; ?>" class="btn btn-warning">Edit</a> ||
                                     <a href="action_delete_ukm.php?id_ukm=<?php echo $d['id_ukm']; ?>" class="btn btn-danger">Hapus</a>
