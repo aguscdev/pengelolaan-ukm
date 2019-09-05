@@ -269,8 +269,16 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
   <div class="container">
          <div class="row team_columns_carousel_wrapper">
           <?php
+          $batas = 4;
+          $halaman = @$_GET['halaman'];
+          if(empty($halaman)){
+           $posisi  = 0;
+           $halaman = 1;
+          } else {
+            $posisi = ($halaman - 1) * $batas;
+          }
           include 'config/koneksi.php';
-          $sql = $koneksi->query("SELECT * FROM produk");
+          $sql = $koneksi->query("SELECT * FROM produk LIMIT $posisi, $batas");
           if($sql){
               while($obj = $sql->fetch_object()) {
               echo '<div class="item">
@@ -305,11 +313,27 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
                   }
                     echo '</div></div>';            
                   }
-                  
-                  }?>
+                    echo "</table>";
+                    $query2     = mysqli_query($koneksi, "select * from produk");
+                    $jmldata    = mysqli_num_rows($query2);
+                    $jmlhalaman = ceil($jmldata/$batas);
+
+                    echo "<br><a href=\"\"></a><br>";
+                    for($i=1;$i<=$jmlhalaman;$i++)
+                    if ($i != $halaman){
+                     echo " <a href=\"index.php?halaman=$i\"  style='font-weight: bold; color: red;'>$i</a> | ";
+                    }
+                    else{ 
+                     echo " <b>$i</b> | "; 
+                    }
+                    echo "<p>Total Produk : <b>$jmldata</b> Produk</p>";
+                    ?>
+                    
+                   <?php } ?>
                 <hr>
             </div>
       </div>
+   
     <br>
     
 <!-- Index Product End -->
