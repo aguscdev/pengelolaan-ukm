@@ -28,27 +28,32 @@ if ($_SESSION['username']=='') {
             <div class="panel-body">
             <form method="post" action="action_add_ukm.php" enctype="multipart/form-data">
               <div class="form-group">
-                  <label for="produk">Produk:</label>
-                  <select name="id_produk" class="form-control" required>
+                  <label for="produk">Nama UKM:</label>
+                  <select name="nama_ukm" class="form-control" required>
                     <option value="">-- Pilih --</option>
                     <?php
                      include '../../config/koneksi.php';
-                     $query = mysqli_query($koneksi,"SELECT * FROM produk");
+                     $query = mysqli_query($koneksi,"SELECT * FROM user_ukm");
                     while($data=mysqli_fetch_array($query)) { ?>
-                    <option value="<?php echo $data['id_produk']; ?>"><?php echo $data['nama_produk']; ?></option>
+                    <option value="<?php echo $data['nama_ukm']; ?>"><?php echo $data['nama_ukm']; ?></option>
                     <?php
                     } ?>
                   </select>
                 </div>
                 <div class="form-group">
-                    <label for="ukm">Nama UKM:</label>
-                    <input type="text" name="nama_ukm" class="form-control" id="ukm" required>
+                  <label for="produk">Pemilik UKM:</label>
+                  <select name="milik" class="form-control" required>
+                    <option value="">-- Pilih --</option>
+                    <?php
+                     include '../../config/koneksi.php';
+                     $query = mysqli_query($koneksi,"SELECT * FROM user_ukm");
+                    while($data=mysqli_fetch_array($query)) { ?>
+                    <option value="<?php echo $data['username']; ?>"><?php echo $data['username']; ?></option>
+                    <?php
+                    } ?>
+                  </select>
                 </div>
-                <div class="form-group">
-                    <label for="milik">Milik:</label>
-                    <input type="text" name="milik" class="form-control" id="milik" required>
-                </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="alamat">Alamat:</label>
                     <input type="text" name="alamat" class="form-control" id="alamat" required>
                 </div>
@@ -56,7 +61,7 @@ if ($_SESSION['username']=='') {
                     <label for="alamat">No Telepon:</label>
                     <input type="number" name="no_telp" class="form-control" id="no_telp" required>
                 </div>
-                <div class="form-group">
+ -->                <div class="form-group">
                     <label for="alamat">Foto:</label>
                     <input type="file" name="photo" class="form-control" id="foto" required>
                 </div>

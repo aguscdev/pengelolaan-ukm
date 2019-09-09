@@ -28,7 +28,7 @@ if ($_SESSION['username']=='') {
             <div class="panel-body">
             <form method="post" action="action_add_produk.php" enctype="multipart/form-data">
               <div class="form-group">
-                  <label for="kategori">kategori:</label>
+                  <label for="kategori">Nama UKM:</label>
                   <select name="kategori_id" class="form-control" required>
                     <option value="">-- Pilih --</option>
                     <?php
@@ -61,7 +61,7 @@ if ($_SESSION['username']=='') {
                     <input type="file" name="foto" class="form-control" id="foto" required>
                 </div>
                 <button type="submit" name="submit" value="Upload Image" class="btn btn-info">Simpan</button>
-                <a class="btn btn-danger" href="v_produk.php">Batal</a>
+                <a class="btn btn-danger" href="v_add_produk.php">Batal</a>
             </form>
             </div>
         </div>

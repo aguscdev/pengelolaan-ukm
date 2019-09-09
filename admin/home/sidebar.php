@@ -79,7 +79,7 @@ if ($_SESSION['username']=='') {
             <div id="ukm" class="collapse ">
                 <ul class="nav">
                     <li><a href="../ukm/v_ukm.php" class=""><i class="fa fa-list"></i> &nbsp List UKM</a></li>
-                    <!-- <li><a href="../produk/v_produk.php" class=""><i class="fa fa fa-list"></i> &nbsp Produk UKM</a></li> -->
+                    <li><a href="../user_ukm_admin/v_user_ukm.php" class=""><i class="fa fa-user-o text-aqua"></i> &nbsp User UKM</a></li>
                 </ul>
             </div>
         </li>

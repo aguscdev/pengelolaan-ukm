@@ -37,8 +37,8 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
             <li class="active" role="presentation"><a href="index.php">Home</a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">UKM <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="daftar_ukm.php">Registrasi UKM</a></li>
-                <li><a href="admin/login.php">Login UKM</a></li>
+                <li><a href="admin/user_ukm/user_ukm/daftar_ukm.php">Registrasi UKM</a></li>
+                <li><a href="admin/user_ukm/login.php">Login UKM</a></li>
                 <!-- <li><a href="index.php">List UKM</a></li> -->
               </ul>
             </li>
@@ -283,7 +283,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
               while($obj = $sql->fetch_object()) {
               echo '<div class="item">
                       <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                        <a><img src="admin/produk/'.$obj->foto.'" width="100%" data-toggle="modal" data-target="#'.$obj->id_produk.'"></a>    
+                        <a><img src="admin/user_ukm/produk/'.$obj->foto.'" width="100%" data-toggle="modal" data-target="#'.$obj->id_produk.'"></a>    
                         <div class="team_columns_item_caption">
                         <h5 data-toggle="modal" data-target="#'.$obj->id_produk.'"><a>'.$obj->nama_produk.'</a></h5>
                         <hr>
@@ -299,7 +299,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
                             <h4 class="modal-title">'.$obj->nama_produk.'</h4>
                           </div>';
                     echo '<div class="modal-body">';              
-                    echo '<div class="col-lg-4"><img src="admin/produk/'.$obj->foto.'"></div>
+                    echo '<div class="col-lg-4"><img src="admin/user_ukm/produk/'.$obj->foto.'"></div>
                             <p><h3>'.$obj->nama_produk.'</h3></p>
                             <p><h4><strong>Description</strong>: '.$obj->deskripsi.'</h4></p>
                             <p><h3><strong>Harga (Per Unit)</strong>: '.$currency.$obj->harga.'</h3></p>
@@ -326,7 +326,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
                     else{ 
                      echo " <b>$i</b> | "; 
                     }
-                    echo "<p>Total Produk : <b>$jmldata</b> Produk</p>";
+                    // echo "<p>Total Produk : <b>$jmldata</b> Produk</p>";
                     ?>
                     
                    <?php } ?>

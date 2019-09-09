@@ -28,8 +28,17 @@ if ($_SESSION['username']=='') {
             <div class="panel-body">
             <form method="post" action="action_add_kategori.php">
                 <div class="form-group">
-                    <label for="usr">Nama Kategori:</label>
-                    <input type="text" name="nama" class="form-control" id="usr" required>
+                  <label for="produk">Nama UKM:</label>
+                  <select name="nama" class="form-control" required>
+                    <option value="">-- Pilih --</option>
+                    <?php
+                     include '../../config/koneksi.php';
+                     $query = mysqli_query($koneksi,"SELECT * FROM user_ukm");
+                    while($data=mysqli_fetch_array($query)) { ?>
+                    <option value="<?php echo $data['nama_ukm']; ?>"><?php echo $data['nama_ukm']; ?></option>
+                    <?php
+                    } ?>
+                  </select>
                 </div>
                 <button type="submit" class="btn btn-info">Simpan</button>
                 <a class="btn btn-danger" href="v_kategori.php">Batal</a>

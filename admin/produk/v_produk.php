@@ -31,8 +31,8 @@ if ($_SESSION['username']=='') {
                     <table id="dtUser" class="table table-bordered">
                         <thead>
                             <th>Produk Id</th>
-                            <th>Kategori</th>
                             <th>Nama UKM</th>
+                            <th>Nama Produk</th>
                             <th>Deskripsi</th>
                             <th>Harga</th>
                             <th>QTY</th>

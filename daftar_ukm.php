@@ -22,27 +22,37 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="#"><b>Daftar</b></a>
+    <a href="#"><b>Daftar UKM</b></a>
   </div>
   <div class="register-box-body">
-  <form method="post" action="action_daftar_ukm.php"> 
+  <form method="post" action="action_daftar_ukm.php" enctype="multipart/form-data">  
   <div class="form-group has-feedback">
-    <label>Nama:</label>
-    <input type="text" name="nama" class="form-control" placeholder="Nama">
-  </div> 
-  <div class="form-group has-feedback">
-    <label>UserName:</label>
+    <label>Nama Pemilik:</label>
     <input type="text" name="username" class="form-control" placeholder="Nama ">
+  </div>
+  <div class="form-group has-feedback">
+    <label>Nama UKM:</label>
+    <input type="text" name="nama_ukm" class="form-control" placeholder="Nama ">
+  </div>
+  <div class="form-group has-feedback">
+    <label>Email:</label>
+    <input type="email" name="email" class="form-control" placeholder="example@mail.com">
+  </div>
+  <div class="form-group has-feedback">
+    <label>No Telepon:</label>
+    <input type="number" name="no_telp" class="form-control" placeholder="telepon">
+  </div>
+  <div class="form-group has-feedback">
+    <label>Alamat:</label>
+    <input type="text" name="alamat" class="form-control" placeholder="Alamat">
   </div>
   <div class="form-group has-feedback">
     <label>Password:</label>
     <input type="Password" name="pass" class="form-control" placeholder="Password">
   </div>
   <div class="form-group">
-    <label for="sel1">Akses</label>
-    <select name="level" class="form-control" id="sel1">
-      <option>UKM</option>
-    </select> 
+      <label for="alamat">Foto:</label>
+      <input type="file" name="foto" class="form-control" id="foto" required>
   </div>
   <br/>
   <div class="col-xs-5">

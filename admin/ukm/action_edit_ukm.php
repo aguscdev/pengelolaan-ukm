@@ -1,11 +1,8 @@
 <?php
 	include "../../config/koneksi.php";
  
-	$nama_ukm = $_POST["nama_ukm"];
-	$produk = $_POST["id_produk"]; 
+	$nama_ukm = $_POST["nama_ukm"]; 
 	$milik = $_POST["milik"];
-	$alamat = $_POST["alamat"];
-	$no_telp = $_POST["no_telp"];
 	$foto = $_POST["photo"];
 	$id_ukm = $_POST["id_ukm"];
 	$gambar = "img/";
@@ -15,7 +12,7 @@
 	move_uploaded_file($gambar_file);
  
 	// query sql
-	$sql = "UPDATE ukm SET nama_ukm='$nama_ukm',id_produk='$produk',milik='$milik', alamat='$alamat', no_telp='$no_telp', photo='$gambar_file' WHERE id_ukm='$id_ukm'";
+	$sql = "UPDATE ukm SET nama_ukm='$nama_ukm',milik='$milik',photo='$gambar_file' WHERE id_ukm='$id_ukm'";
 	// var_dump($sql);
 	// die;
 						
