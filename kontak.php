@@ -13,8 +13,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
 <body>
 <?php include 'sidebar.php'; ?>
 
-<div class="container">
-<br>
+<!-- <div class="container"> -->
 <!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
@@ -73,6 +72,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
 			<div class="clearfix"> </div>
 		</div>
 	</div>
+</div>
 <!-- contact -->
 
 </body>
