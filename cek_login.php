@@ -10,7 +10,7 @@ $pass = md5($_POST['pass']);
 $flag = 'true';
 //$query = $mysqli->query("SELECT email, password from users");
 
-$result = $koneksi->query('SELECT id_user,email,pass,username from user order by id_user asc');
+$result = $koneksi->query('SELECT id,email,pass,username from user order by id asc');
 // var_dump($result);
 // die;
 if($result == FALSE){
@@ -23,7 +23,7 @@ if($result){
 
       $_SESSION['username'] = $username;
       // $_SESSION['type'] = $obj->type;
-      $_SESSION['id_user'] = $obj->id_user;
+      $_SESSION['id'] = $obj->id;
       $_SESSION['username'] = $obj->username;
       header("location:index.php");
     } else {

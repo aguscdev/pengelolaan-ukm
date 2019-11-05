@@ -8,10 +8,10 @@ $pass = md5($_POST['pass']);
 $no_telp = $_POST["no_telp"];
 $alamat = $_POST["alamat"];
 
-$sqlID = "SELECT id_user FROM user ORDER BY id_user DESC LIMIT 1";
+$sqlID = "SELECT id FROM user ORDER BY id DESC LIMIT 1";
 $select = mysqli_query($koneksi, $sqlID);
 $data = mysqli_fetch_assoc($select);
-$myID = $data['id_user'] + 1;
+$myID = $data['id'] + 1;
 
 //input ke database
 $sql = "INSERT INTO user values('$myID','$username','$email','$alamat','$no_telp','$pass')";

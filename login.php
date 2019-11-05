@@ -1,61 +1,81 @@
-<?php
-
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();}
-if(session_id() == '' || !isset($_SESSION)){session_start();}
-
-if(isset($_SESSION["username"])){
-
-        header("location:index.php");
-}
-
-?>
-
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Halaman | Login</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="assets/dist/css/skins/_all-skins.min.css">
-</head>
-<!-- Header Nav End --><br>
-<body class="hold-transition register-page">
-<div class="register-box">
-  <div class="register-logo">
-    <a href="#"><b>Login</b></a>
+<html lang="en">
+ <?php include 'header.php'; ?> 
+  <body>
+  	<?php include 'sidebar.php'; ?>
+    <?php 
+  if(isset($_GET['pesan'])){
+    if($_GET['pesan']=="gagal"){
+      echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
+    }
+  }
+  ?>
+    <!-- login -->
+  <div class="login">
+    <div class="container">
+      <h2>Login</h2>
+    
+      <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+        <form action="cek_login.php" class="inner-login" method="post" id="login">
+          <input type="email" name="username" placeholder="Email" required=" " >
+          <input type="password" name="pass" placeholder="Pass" required=" " >
+          <div class="forgot">
+            <a href="#">Lupa kata sandi?</a>
+          </div>
+          <input type="submit" name="submit" value="LOGIN">
+        </form>
+      </div>
+      <h4>Untuk Orang Baru</h4>
+      <p><a href="registered.php">Daftar disini</a> (Atau) kembali ke <a href="../index.php">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+    </div>
   </div>
-  <div class="register-box-body">
-  <form method="post" action="cek_login.php">  
-  <div class="form-group has-feedback">
-    <label>Email:</label>
-    <input type="email" name="username" class="form-control" placeholder="Enter email id">
-  </div>
-  <div class="form-group has-feedback">
-    <label>Password:</label>
-    <input type="Password" name="pass" class="form-control" placeholder="Enter pass">
-  </div>
-  <br/>
-  <div class="col-xs-5">
-    <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
-  </div>
-  <div class="col-xs-5">
-    <a href="index.php" class="btn btn-warning btn-block btn-flat">Batal</a>
-  </div>  
-  </form>
-  <br/>
-  <br/>
-</div>
-</body>
+<!-- //login -->
+    <?php include 'footer.php'; ?>
+    <!-- Bootstrap Core JavaScript -->
+<script src="assets/tamplate/js/bootstrap.min.js"></script>
+
+<!-- top-header and slider -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+<script src="assets/tamplate/js/minicart.min.js"></script>
+<script>
+	// Mini Cart
+	paypal.minicart.render({
+		action: '#'
+	});
+
+	if (~window.location.search.indexOf('reset=true')) {
+		paypal.minicart.reset();
+	}
+</script>
+<!-- main slider-banner -->
+<script src="assets/tamplate/js/skdslider.min.js"></script>
+<link href="assets/tamplate/css/skdslider.css" rel="stylesheet">
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			});
+			
+		});
+</script>	
+<!-- //main slider-banner -->
+  </body>
 </html>

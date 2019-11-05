@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2019 at 09:00 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.0.33
+-- Waktu pembuatan: 05 Nov 2019 pada 08.29
+-- Versi server: 10.4.6-MariaDB
+-- Versi PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -37,17 +37,18 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id`, `nama`, `username`, `password`, `level`) VALUES
 (1, 'Agus Cahyadi', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'ADMIN'),
-(2, 'eko', 'ekoas', '21232f297a57a5a743894a0e4a801fc3', 'ADMIN');
+(2, 'eko', 'ukm', 'e5ea9b6d71086dfef3a15f726abcc5bf', 'UKM'),
+(3, 'Rohman', 'desa', 'e54cc06625bbadf12163b41a3cb92bf8', 'DESA');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -56,33 +57,17 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`kategori_id`, `nama_kategori`) VALUES
-(1, 'Makanan'),
-(2, 'Minuman');
+(1, 'Keripik'),
+(4, 'Kerupuk');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `laporan`
---
-
-CREATE TABLE `laporan` (
-  `id_laporan` int(11) NOT NULL,
-  `id_produk` int(3) NOT NULL,
-  `nama_produk` varchar(100) NOT NULL,
-  `harga` varchar(10) NOT NULL,
-  `omset` varchar(10) NOT NULL,
-  `waktu` time NOT NULL,
-  `tahun` year(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `orders`
+-- Struktur dari tabel `orders`
 --
 
 CREATE TABLE `orders` (
@@ -92,88 +77,81 @@ CREATE TABLE `orders` (
   `harga` int(11) NOT NULL,
   `units` int(5) NOT NULL,
   `total` int(15) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `orders`
+-- Dumping data untuk tabel `orders`
 --
 
 INSERT INTO `orders` (`id`, `nama_produk`, `deskripsi`, `harga`, `units`, `total`, `date`, `email`) VALUES
-(24, 'Kamera', 'canon D600', 350000, 1, 350000, '2019-08-11 10:16:51', 'pujiyati'),
-(25, 'Kamera', 'canon D600', 350000, 1, 350000, '2019-08-11 10:22:39', 'pujiyati'),
-(26, 'Kamera', 'canon D600', 350000, 1, 350000, '2019-08-11 10:23:22', 'pujiyati'),
-(27, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:24:36', 'pujiyati'),
-(28, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:25:49', 'pujiyati'),
-(29, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:26:06', 'pujiyati'),
-(30, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:26:58', 'pujiyati'),
-(31, 'Baju Kemeja Anak', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 150000, 1, 150000, '2019-08-11 10:37:48', 'pujiyati'),
-(32, 'Baju', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 500000, 1, 500000, '2019-08-11 10:50:15', 'pujiyati'),
-(33, 'Baju cewe', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 550000, 1, 550000, '2019-08-11 10:51:02', 'agus'),
-(34, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:03:32', 'pujiyati'),
-(35, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:04:07', 'agus'),
-(36, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:17:28', 'agus'),
-(37, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 1, 200000, '2019-08-11 11:29:02', 'agus'),
-(38, 'Baju cewe', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 550000, 1, 550000, '2019-08-12 03:19:38', 'agus'),
-(39, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 6, 1200000, '2019-08-13 03:22:54', 'agus'),
-(40, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 5, 1000000, '2019-08-13 03:24:06', 'agus'),
-(41, 'kulkas', 'Elektonik import dari jepang dan jerman', 200000, 5, 1000000, '2019-08-13 03:26:49', 'agus'),
-(42, 'Baju', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', 500000, 1, 500000, '2019-08-13 03:36:41', 'agus'),
-(43, 'Strika', 'Elektonik import dari jepang', 350000, 1, 350000, '2019-08-13 03:38:14', 'pujiyati');
+(1, 'keripik pedas', 'Keripik pedas khas indonesia sangat terasa bumbu', 50000, 1, 50000, '2019-11-02 17:00:00', 'agus'),
+(2, 'keripik pedas', 'Keripik pedas khas indonesia sangat terasa bumbu\"a', 50000, 1, 50000, '2019-11-01 17:00:00', 'agus'),
+(5, 'Pisang', 'pisang khas Indonesia', 3000, 1, 3000, '2019-11-04 08:20:27', 'agusc'),
+(6, 'Singkong', 'seingkong khas Indonesia', 2000, 3, 6000, '2019-11-04 08:45:04', 'eko');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pameran`
+-- Struktur dari tabel `pameran`
 --
 
 CREATE TABLE `pameran` (
   `id_pameran` int(11) NOT NULL,
+  `id_user_ukm` int(11) NOT NULL,
+  `id_ukm` int(11) NOT NULL,
   `nama_pameran` varchar(255) NOT NULL,
   `tempat` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
+  `waktu` time NOT NULL,
+  `biaya` varchar(55) NOT NULL,
+  `peserta` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `pameran`
+--
+
+INSERT INTO `pameran` (`id_pameran`, `id_user_ukm`, `id_ukm`, `nama_pameran`, `tempat`, `tanggal`, `waktu`, `biaya`, `peserta`) VALUES
+(11, 1, 1, 'Evaluasi wilayah kegiatan', 'Tangerang', '2019-11-23', '12:32:00', '250000', '25'),
+(12, 2, 1, 'Evaluasi wilayah kegiatan', 'Tangerang', '2019-11-23', '12:32:00', '250000', '25'),
+(13, 1, 1, 'proses persiapan produktifitas', 'Tangerang', '2019-11-03', '14:03:00', '250000', '25');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pelatihan`
+--
+
+CREATE TABLE `pelatihan` (
+  `id_pelatihan` int(11) NOT NULL,
+  `id_user_ukm` int(11) NOT NULL,
+  `id_ukm` int(11) NOT NULL,
+  `nama_pelatihan` varchar(255) NOT NULL,
+  `tempat` varchar(255) NOT NULL,
+  `tanggal` date NOT NULL,
   `waktu` time NOT NULL,
   `peserta` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pameran`
+-- Dumping data untuk tabel `pelatihan`
 --
 
-INSERT INTO `pameran` (`id_pameran`, `nama_pameran`, `tempat`, `waktu`, `peserta`) VALUES
-(1, 'Bazar', 'Tangerang', '12:04:00', '150'),
-(4, 'Photografi', 'Bandung', '09:00:00', '100');
+INSERT INTO `pelatihan` (`id_pelatihan`, `id_user_ukm`, `id_ukm`, `nama_pelatihan`, `tempat`, `tanggal`, `waktu`, `peserta`) VALUES
+(7, 1, 1, 'Seminar Internal', 'cisoka, Tangerang', '2019-11-11', '02:10:00', '12');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelatihan`
---
-
-CREATE TABLE `pelatihan` (
-  `id_pelatihan` int(11) NOT NULL,
-  `nama_pelatihan` varchar(255) NOT NULL,
-  `tempat` varchar(255) NOT NULL,
-  `waktu` date NOT NULL,
-  `peserta` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pelatihan`
---
-
-INSERT INTO `pelatihan` (`id_pelatihan`, `nama_pelatihan`, `tempat`, `waktu`, `peserta`) VALUES
-(3, 'Traning Kuliner2', 'Tangerang2', '2019-07-25', '152'),
-(4, 'Traning Otomotif2', 'Jakarta2', '2019-07-25', '502');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `produk`
+-- Struktur dari tabel `produk`
 --
 
 CREATE TABLE `produk` (
-  `id_produk` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_user_ukm` int(11) NOT NULL,
+  `kategori_id` varchar(12) NOT NULL,
   `nama_produk` varchar(70) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   `harga` varchar(6) NOT NULL,
@@ -182,46 +160,46 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `produk`
+-- Dumping data untuk tabel `produk`
 --
 
-INSERT INTO `produk` (`id_produk`, `nama_produk`, `deskripsi`, `harga`, `qty`, `foto`) VALUES
-(3, 'Baju', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', '500000', 48, 'img/image28.jpg'),
-(4, 'Baju cewe', 'Model Baju kemeja anak improt dari korea yang selalu terjual di negara Indonesia karna kwalitasnya.', '550000', 48, 'img/image28.jpg'),
-(5, 'Strika', 'Elektonik import dari jepang', '350000', 34, 'img/image28.jpg'),
-(7, 'kulkas', 'Elektonik import dari jepang dan jerman', '200000', 45, 'img/image28.jpg');
+INSERT INTO `produk` (`id`, `id_user_ukm`, `kategori_id`, `nama_produk`, `deskripsi`, `harga`, `qty`, `foto`) VALUES
+(58, 3, '4', 'Pisang', 'pisang khas Indonesia', '3000', 10, 'img/keripik.jpeg'),
+(60, 1, '1', 'Singkong', 'seingkong khas Indonesia', '2000', 9, 'img/keripik.jpeg'),
+(71, 1, '1', 'Pisang', 'pisang khas Indonesia', '3000', 15, 'img/keripik.jpeg'),
+(72, 47, '1', 'keripik pedas1', 'Keripik pedas khas indonesia sangat terasa bumbu1', '2000', 12, 'img/sid.jpeg'),
+(73, 1, '4', 'Keripik Kentang', 'Keripik pedas khas indonesia sangat terasa bumbu1', '3000', 14, 'img/keripik.jpeg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ukm`
+-- Struktur dari tabel `ukm`
 --
 
 CREATE TABLE `ukm` (
   `id_ukm` int(11) NOT NULL,
-  `nama_ukm` varchar(30) NOT NULL,
-  `milik` varchar(50) NOT NULL,
-  `alamat` varchar(70) NOT NULL,
-  `no_telp` varchar(13) NOT NULL,
-  `foto` varchar(25) NOT NULL
+  `id_user_ukm` int(11) NOT NULL,
+  `nama_ukm` varchar(50) NOT NULL,
+  `pemilik_ukm` varchar(55) NOT NULL,
+  `alamat` varchar(25) NOT NULL,
+  `no_telp` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ukm`
+-- Dumping data untuk tabel `ukm`
 --
 
-INSERT INTO `ukm` (`id_ukm`, `nama_ukm`, `milik`, `alamat`, `no_telp`, `foto`) VALUES
-(9, 'Konveksi', 'Agus Cahyadi', 'Tangerang', '02159331122', 'img/iron.JPG'),
-(10, 'Makanan', 'Eko AS', 'Jakarta', '02133445566', 'img/ecommers.jpg');
+INSERT INTO `ukm` (`id_ukm`, `id_user_ukm`, `nama_ukm`, `pemilik_ukm`, `alamat`, `no_telp`) VALUES
+(1, 1, 'vina home', 'vina', 'cisoka, Tangerang', '123456789');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
   `email` varchar(25) NOT NULL,
   `alamat` varchar(255) NOT NULL,
@@ -230,129 +208,154 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `email`, `alamat`, `no_telp`, `pass`) VALUES
-(1, 'pujiyati', 'pujiyati@gmail.com', 'Rajeg, Tangerang', '085693231030', '83d4bf0a6c7e'),
-(2, 'agus', 'agus@gmail.com', 'Jakarta', '085778783602', 'fdf169558242'),
-(3, 'eko', 'eko@gmail.com', 'Jakarta', '085777888866', 'e5ea9b6d7108');
+INSERT INTO `user` (`id`, `username`, `email`, `alamat`, `no_telp`, `pass`) VALUES
+(1, 'agusc', 'agusc.dev02@gmail.com', 'Rajeg, Tangerang', '085778783602', 'fdf169558242'),
+(2, 'eko', 'eko@gmail.com', 'cikupa, Tangerang', '12345678912', 'e5ea9b6d7108');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user_ukm`
+--
+
+CREATE TABLE `user_ukm` (
+  `id_user_ukm` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `no_telp` varchar(13) NOT NULL,
+  `pass` char(20) NOT NULL,
+  `fhoto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user_ukm`
+--
+
+INSERT INTO `user_ukm` (`id_user_ukm`, `username`, `email`, `alamat`, `no_telp`, `pass`, `fhoto`) VALUES
+(1, 'vina', 'vina@gmail.com', 'cisoka, Tangerang', '12345', '4590db67d440b059ac31', 'img/pp.jpg'),
+(46, 'agus', 'aguscahyadi1988@gmail.com', 'Rajeg, Tangerang', '08577878360', '56d37d0e3096e792ee1d', 'img/agus.jpeg'),
+(47, 'rohman', 'rohman@gmail.com', 'cikupa, Tangerang', '1234567891223', '2397977a0e43fb1f5ee2', 'img/belajar.jpeg'),
+(48, 'budi', 'budi@gmail.com', 'cisoka, Tangerang1', '1234567891', '00dfc53ee86af02e7425', 'img/koperasi.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`kategori_id`);
 
 --
--- Indexes for table `laporan`
---
-ALTER TABLE `laporan`
-  ADD PRIMARY KEY (`id_laporan`);
-
---
--- Indexes for table `orders`
+-- Indeks untuk tabel `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pameran`
+-- Indeks untuk tabel `pameran`
 --
 ALTER TABLE `pameran`
   ADD PRIMARY KEY (`id_pameran`);
 
 --
--- Indexes for table `pelatihan`
+-- Indeks untuk tabel `pelatihan`
 --
 ALTER TABLE `pelatihan`
   ADD PRIMARY KEY (`id_pelatihan`);
 
 --
--- Indexes for table `produk`
+-- Indeks untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  ADD PRIMARY KEY (`id_produk`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ukm`
+-- Indeks untuk tabel `ukm`
 --
 ALTER TABLE `ukm`
   ADD PRIMARY KEY (`id_ukm`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `user_ukm`
+--
+ALTER TABLE `user_ukm`
+  ADD PRIMARY KEY (`id_user_ukm`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kategori_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `laporan`
---
-ALTER TABLE `laporan`
-  MODIFY `id_laporan` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT untuk tabel `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pameran`
+-- AUTO_INCREMENT untuk tabel `pameran`
 --
 ALTER TABLE `pameran`
-  MODIFY `id_pameran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pameran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `pelatihan`
+-- AUTO_INCREMENT untuk tabel `pelatihan`
 --
 ALTER TABLE `pelatihan`
-  MODIFY `id_pelatihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pelatihan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `produk`
+-- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
--- AUTO_INCREMENT for table `ukm`
+-- AUTO_INCREMENT untuk tabel `ukm`
 --
 ALTER TABLE `ukm`
-  MODIFY `id_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `user_ukm`
+--
+ALTER TABLE `user_ukm`
+  MODIFY `id_user_ukm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

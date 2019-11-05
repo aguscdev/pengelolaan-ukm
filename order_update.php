@@ -8,9 +8,9 @@ if(isset($_SESSION['cart'])) {
 
   $total = 0;
 
-  foreach($_SESSION['cart'] as $id_produk => $quantity) {
+  foreach($_SESSION['cart'] as $id => $quantity) {
 
-    $result = $koneksi->query("SELECT * FROM produk WHERE id_produk = ".$id_produk);
+    $result = $koneksi->query("SELECT * FROM produk WHERE id = ".$id);
 
     if($result){
 
@@ -28,7 +28,7 @@ if(isset($_SESSION['cart'])) {
 
         if($query){
           $newqty = $obj->qty - $quantity;
-          if($koneksi->query("UPDATE produk SET qty = ".$newqty." WHERE id_produk = ".$id_produk)){
+          if($koneksi->query("UPDATE produk SET qty = ".$newqty." WHERE id = ".$id)){
 
           }
         }

@@ -9,95 +9,16 @@ include 'config/koneksi.php';
 $query = mysqli_query($koneksi,"SELECT * FROM kategori ORDER BY kategori_id ASC");
 $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC");
 ?>
-<head>
-  <title>Peneglolaan UKM</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/include/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/include/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/include/display.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
-  .background-color {
-    background-color:#ffffff;
-  }
-</style>
-</head>
-<body class="background-color">
-   <div class="header-blue">
-    <nav class="navbar navbar-default navigation-clean-search">
-      <div class="container">
-        <div class="navbar-header"><a class="navbar-brand navbar-link" href="index.php">Kelola-UKM</a>
-          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-        </div>
-        <div class="collapse navbar-collapse" id="navcol-1">
-          <ul class="nav navbar-nav">
-            <!-- <li class="#" role="presentation"><a class="navbar-link login" href="admin/login.php"><i class="glyphicon glyphicon glyphicon-user"></i> Login Admin</a></li> -->
-            <li class="active" role="presentation"><a href="index.php">Home</a></li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">UKM <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="daftar_ukm.php">Registrasi UKM</a></li>
-                <li><a href="admin/login.php">Login UKM</a></li>
-                <!-- <li><a href="index.php">List UKM</a></li> -->
-              </ul>
-            </li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Semua Kategori<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <?php if(mysqli_num_rows($query)) { ?>
-                  <?php while ($d = mysqli_fetch_array($query)) { ?>
-                <li><a href="kategori.php?kategory=<?php echo $d["kategori_id"]; ?>"><?php echo $d["nama_kategori"]; ?></a></li>
-              <?php   }  ?>
-              <?php } ?>
-                <!-- <li><a href="product.php">Keripik</a></li> -->
-                <!-- <li><a href="product.php">Accessories</a></li> -->
-              </ul>
-            </li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pelatihan <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="pelatihan/v_add_pelatihan.php">Tambah Pelatihan</a></li>
-                <li><a href="pelatihan/v_pelatihan.php">List Pelatihan</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Pameran <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="pameran/v_add_pameran.php">Tambah Pameran</a></li>
-                <li><a href="pameran/v_pameran.php">List Pameran</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-left" target="_self" method="GET" action="search.php">
-            <div class="form-group">
-              <label class="control-label" for="search-field"><i class="glyphicon glyphicon-search"></i></label>
-                <input class="form-control search-field" type="search" name="search" id="search-field">
-            </div>
-          </form>
-          <p class="navbar-text navbar-right">
-            <?php
-              if(isset($_SESSION['username'])){
-                echo '<a  class="btn btn-default action-button" href="cart.php"><i class="glyphicon glyphicon-shopping-cart"></i> Keranjang</a>';
-                echo '<a class="btn btn-default action-button" href="account.php"><i class="glyphicon glyphicon-user"></i> My Account</a>';
-                 echo '<a class="btn btn-default action-button" href="logout.php"><i class="glyphicon glyphicon -log-out"></i> Logout</a>';
-              }
-              else {
-                echo '<a  class="btn btn-default action-button" href="admin/login.php"><i class="glyphicon glyphicon-shopping-cart"></i> Login Admin</a>';
-                // echo '<a class="btn btn-default action-button" href="../../admin/login.php"><i class="glyphicon glyphicon glyphicon-user"></i> Login Admin</a>';
-                echo '<a class="btn btn-default action-button" href="daftar.php"><i class="glyphicon glyphicon -log-out"></i> Daftar</a>';
-                echo '<a class="btn btn-default action-button" href="login.php"><i class="glyphicon glyphicon-log-in"></i> Login</a>';
-              }
-            ?>
+<?php include 'header.php'; ?>
+<body>
+<?php include 'sidebar.php'; ?>
 
-          </p>
-        </div>
-      </div>
-        </nav>
-    </div>
-<!-- Header Nav End --><br>
+<br>
 
 <div class="container">
   <div class="team_columns_carousel_wrapper">
   <div class="jumbotron">
-    <p><h1><center>Keranjang Belanja Anda</center></h1></p>
+    <p><h1><center><font color="black">Keranjang Belanja Anda</center></h1></p>
   </div>
     <div class="row" style="margin-top:10px;">
       <div class="col-md-12"></div>
@@ -119,9 +40,9 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
             echo '</tr>';
             echo '<tbody>';
 
-            foreach($_SESSION['cart'] as $id_produk => $quantity) {
+            foreach($_SESSION['cart'] as $id => $quantity) {
 
-            $result = $koneksi->query("SELECT id_produk, nama_produk, deskripsi, harga, qty FROM produk WHERE id_produk = ".$id_produk);
+            $result = $koneksi->query("SELECT id, nama_produk, deskripsi, harga, qty FROM produk WHERE id = ".$id);
 
 
             if($result){
@@ -131,9 +52,9 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
                 $total = $total + $cost; //add to the total cost
 
                 echo '<tr class="active">';
-                echo '<td>'.$obj->id_produk.'</td>';
+                echo '<td>'.$obj->id.'</td>';
                 echo '<td>'.$obj->nama_produk.'</td>';
-                echo '<td>'.$quantity.'&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=add&id_produk='.$id_produk.'">+</a>&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=remove&id_produk='.$id_produk.'">-</a></td>';
+                echo '<td>'.$quantity.'&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=add&id='.$id.'">+</a>&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=remove&id='.$id.'">-</a></td>';
                 echo '<td>'.$cost.'</td>';
                 echo '</tr>';
               }
@@ -151,14 +72,14 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
           echo '</tr>';
           echo '</tbody>';
           echo '</table><hr>';
-          echo '<a href="index.php"><button class="add-to-cart">Batal</button></a>&nbsp;<a href="product.php"><button class="add-to-cart">Belanja Lagi</button></a>';
+          echo '<a href="index.php"><button class="btn btn-warning">Batal</button></a>&nbsp;<a href="product.php"><button class="btn btn-warning">Belanja Lagi</button></a>';
 
           if(isset($_SESSION['username'])) {
-            echo '<a href="order_update.php"><button class="add-to-cart" style="float:right;">Input</button></a>';
+            echo '<a href="order_update.php"><button class="btn btn-warning" style="float:right;">Input</button></a>';
           }
 
           else {
-            echo '<a href="login.php" class="add-to-cart" style="float:right">Login</a>';
+            echo '<a href="login.php" class="btn btn-warning" style="float:right">Login</a>';
           }
           echo '<hr>';
         }
@@ -174,6 +95,56 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
   </div><br>
   </div>
   </div>
-  </body>
-  <?php include 'footer.php'; ?>
+ </body>        
+<!-- //register -->
+<?php include 'footer.php'; ?> 
+<!-- Bootstrap Core JavaScript -->
+<!-- Bootstrap Core JavaScript -->
+<script src="assets/tamplate/js/bootstrap.min.js"></script>
+
+<!-- top-header and slider -->
+<!-- here stars scrolling icon -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+      /*
+        var defaults = {
+        containerID: 'toTop', // fading element id
+        containerHoverID: 'toTopHover', // fading element hover id
+        scrollSpeed: 1200,
+        easingType: 'linear' 
+        };
+      */
+                
+      $().UItoTop({ easingType: 'easeOutQuart' });
+                
+      });
+  </script>
+<!-- //here ends scrolling icon -->
+<script src="assets/tamplate/js/minicart.min.js"></script>
+<script>
+  // Mini Cart
+  paypal.minicart.render({
+    action: '#'
+  });
+
+  if (~window.location.search.indexOf('reset=true')) {
+    paypal.minicart.reset();
+  }
+</script>
+<!-- main slider-banner -->
+<script src="assets/tamplate/js/skdslider.min.js"></script>
+<link href="assets/tamplate/css/skdslider.css" rel="stylesheet">
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+            
+      jQuery('#responsive').change(function(){
+        $('#responsive_wrapper').width(jQuery(this).val());
+      });
+      
+    });
+</script> 
+<!-- //main slider-banner --> 
+
+
 </html>
