@@ -6,8 +6,8 @@
 					<h3>Contact</h3>
 					
 					<ul class="address">
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Ds. Cisoka, <span>Kab. Tangerang.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">umkm@gmail.com</a></li>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>0896-5076-4064</li>
 					</ul>
 				</div>

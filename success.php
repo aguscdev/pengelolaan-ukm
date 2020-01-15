@@ -23,36 +23,32 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
         <h5><p>Pesanan anda telah di tempatkan</p></h5>
          <?php
 
-          if(isset($_SESSION['cart'])) {
-            // echo '<div class="">';
-            // echo '<div class="col-xs-6">';
-            // echo '<address>';
-            // echo '<strong><h4>Dikirim Ke&nbsp;:</h4></strong>';
+                          if(isset($_SESSION['cart'])) {
 
-            ?>
+                          $total = 0;
+        echo '';
+                foreach($_SESSION['cart'] as $id => $quantity) {
 
-            <?php
-            include 'config/koneksi.php';
-                $result = $koneksi->query('SELECT * FROM orders WHERE id=id');
-    //$result = $koneksi->query('SELECT * FROM user WHERE id_user='.$_SESSION['id_user']);
-                // $result1 = $mysqli->query('SELECT date FROM order');
-                    if($result === FALSE){
-                       die(mysql_error());
+                            $result = $koneksi->query("SELECT id, nama_produk, deskripsi, qty, harga FROM produk WHERE id = ".$id);
+                              if($result){
+                              $obj = $result->fetch_object(); {
+                                $cost = $obj->harga * $quantity; //work out the line cost
+                                $total = $total + $cost; //add to the total cost
+            echo '';
+                        }
+                      }
                     }
-
-                    if($result) {
-                      $obj = $result->fetch_object();
-                    echo 'Nomor pemesan anda adalah&nbsp;<b>PSN-'. $obj->id. '</b>';
-                        echo '&nbsp;dan total pembayaran adalah&nbsp;<b>Rp.'. $obj->total. '</b>';
-                        // echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Telepon : &nbsp;'. $obj->no_telp. '<br>';
-                        // echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Alamat : &nbsp;'. $obj->alamat. '<br>';
-                    // echo '</address>';
-                    // echo '</div>';
-              
+            echo '
+                  <tr>
+                    <td class="no-line"></td>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center"><strong>Total pembayaran adalah</strong>&nbsp;<b>Rp.'.$total.'<b/></td>
+                  </tr>
+                </tbody>
+              </table>';
+              echo '';
                     }
-                }
-
-            ?>
+                    ?>
 
         <h5>Silahkan melakukan pembayaran dengan meng transfer ke nomor rekening di bawah ini pembayaran</h5>
         <h5>Kirim bukti pembayaran ke tlpn/Wa: 0896-5076-4064.</h5><br> 

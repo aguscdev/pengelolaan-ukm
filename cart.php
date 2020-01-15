@@ -72,7 +72,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
           echo '</tr>';
           echo '</tbody>';
           echo '</table><hr>';
-          echo '<a href="index.php"><button class="btn btn-warning">Batal</button></a>&nbsp;<a href="product.php"><button class="btn btn-warning">Belanja Lagi</button></a>';
+          echo '<a href="index.php"><button class="btn btn-warning">Batal</button></a>&nbsp;<a href="index.php"><button class="btn btn-warning">Belanja Lagi</button></a>';
 
           if(isset($_SESSION['username'])) {
             echo '<a href="order_update.php"><button class="btn btn-warning" style="float:right;">Input</button></a>';
