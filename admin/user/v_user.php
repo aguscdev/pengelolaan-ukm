@@ -50,8 +50,8 @@ if ($_SESSION['username']=='') {
                                 <td><?php echo $d['no_telp']; ?></td>
                                 <td><?php echo $d['alamat']; ?></td>
                                 <td>
-                                    <a href="v_edit_user.php?id_user=<?php echo $d['id_user']; ?>" class="btn btn-warning">Edit</a> ||
-                                    <a href="action_delete_user.php?id_user=<?php echo $d['id_user']; ?>" class="btn btn-danger">Hapus</a>
+                                    <a href="v_edit_user.php?id=<?php echo $d['id']; ?>" class="btn btn-warning">Edit</a> ||
+                                    <a href="action_delete_user.php?id=<?php echo $d['id']; ?>" class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
                             <?php

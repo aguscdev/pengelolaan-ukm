@@ -29,16 +29,16 @@ if ($_SESSION['username']=='') {
  
 			<?php
       include '../../config/koneksi.php';
-			$id_user = $_GET['id_user'];
-			$data = mysqli_query($koneksi,"select * from user where id_user='$id_user'");
+			$id = $_GET['id'];
+			$data = mysqli_query($koneksi,"select * from user where id='$id'");
 			while($d = mysqli_fetch_array($data)){
 			?>
 
 			<form method="post" action="action_edit_user.php"> <!-- update.php -->
 					<div class="form-group">
         			    <label for="id">Id User</label>
-        			    <input type="hidden" name="id_user" value="<?php echo $d['id_user']; ?>">
-        			    <input type="text" name="id_user" class="form-control" id="id" value="<?php echo $d['id_user']; ?>" required disabled="">
+        			    <input type="hidden" name="id" value="<?php echo $d['id']; ?>">
+        			    <input type="text" name="id" class="form-control" id="id" value="<?php echo $d['id']; ?>" required disabled="">
         			</div>
         			<div class="form-group">
         			    <label for="user">Name:</label>

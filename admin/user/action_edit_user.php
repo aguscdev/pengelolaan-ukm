@@ -6,10 +6,10 @@
 	$pass = md5($_POST["pass"]);
 	$no_telp = $_POST["no_telp"];
 	$alamat = $_POST["alamat"];
-	$id_user = $_POST["id_user"];
+	$id = $_POST["id"];
  
 	// query sql
-	$sql = "UPDATE user SET username='$username',email='$email',alamat='$alamat',no_telp='$no_telp', pass='$pass' WHERE id_user='$id_user'";
+	$sql = "UPDATE user SET username='$username',email='$email',alamat='$alamat',no_telp='$no_telp', pass='$pass' WHERE id='$id'";
 						
 	$query = mysqli_query($koneksi, $sql);
  	// var_dump($sql);

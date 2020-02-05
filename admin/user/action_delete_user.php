@@ -1,10 +1,10 @@
 <?php
 	include "../../config/koneksi.php";
  
-	$id_user = $_GET["id_user"];
+	$id = $_GET["id"];
  
 	// query sql
-	$sql = "DELETE FROM user WHERE id_user='$id_user'";
+	$sql = "DELETE FROM user WHERE id='$id'";
 	$query = mysqli_query($koneksi, $sql);
  
 	if($query){
