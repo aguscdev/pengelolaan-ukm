@@ -34,10 +34,10 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
 				<div class="agileits_w3layouts_map_pos">
 					<div class="agileits_w3layouts_map_pos1">
 						<h3>Contact Info</h3>
-						<p>1234k Avenue, 4th block, New York City.</p>
+						<p>Ds. Cisoka,Kab. Tangerang.</p>
 						<ul class="wthree_contact_info_address">
-							<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-							<li><i class="fa fa-phone" aria-hidden="true"></i>+(0123) 232 232</li>
+							<li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">umkm@gmail.com</a></li>
+							<li><i class="fa fa-phone" aria-hidden="true"></i>0896-5076-4064</li>
 						</ul>
 						<div class="w3_agile_social_icons w3_agile_social_icons_contact">
 							<ul>

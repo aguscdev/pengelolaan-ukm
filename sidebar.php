@@ -58,7 +58,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left">
-				<h1><a href="index.php">UMKM Cisoka</a></h1>
+				<h1><a href="index.php">UKM SOLEAR</a></h1>
 			</div>
 		<div class="w3l_search">
 			<form action="search.php" method="GET">
