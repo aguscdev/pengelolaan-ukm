@@ -30,13 +30,13 @@ if ($_SESSION['username']=='') {
                 <!-- <a class="btn btn-success" href="../ukm/v_add_ukm.php"><i class="fa fa-pencil-square-o"></i>Tambah</a><br/><br/> -->
                     
                     <table class="table table-bordered">
+                        <tbody>
                         <?php
                         include '../../config/koneksi.php';
                         $id_user_ukm = isset($_GET['id']) ? $_GET['id'] : "";
                         $query = mysqli_query($koneksi,"SELECT * FROM user_ukm WHERE id_user_ukm='$id_user_ukm'");
-                        $data = mysqli_fetch_array($query);
+                        while($data = mysqli_fetch_array($query)){
                         ?>
-                        <tbody>
                             <tr>
                                 <th width="30%">ID</th>
                                 <td><?php echo $data["id_user_ukm"]; ?></td>
@@ -59,8 +59,9 @@ if ($_SESSION['username']=='') {
                             </tr>
                             <tr>
                                 <th width="30%">Foto</th>
-                                <td><img src="<?php echo $data['fhoto']; ?>" width="300" height="200"/></td> 
+                                <td><img src="../<?= $data['fhoto']; ?>" width="300" height="200"/></td> 
                             </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                     <!-- <a class="btn btn-primary" href="../user_ukm/profil_user_ukm.php">Kembali</a> -->

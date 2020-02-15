@@ -38,7 +38,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
             <figure>
               <div class="snipcart-item block" >
                 <div class="snipcart-thumb">
-                   <a><img src="admin/produk/'.$obj->foto.'" width="100%" data-toggle="modal" data-target="#'.$obj->id.'"></a>    
+                   <a><img src="ukm/produk/'.$obj->foto.'" width="100%" data-toggle="modal" data-target="#'.$obj->id.'"></a>    
                   <p><h5 data-toggle="modal" data-target="#'.$obj->id.'"><a><font color="black">'.$obj->nama_produk.'</a></h5></p>
                   <h4>Rp '.$obj->harga.'</h4>
                 </div>
