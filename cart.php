@@ -54,7 +54,9 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
                 echo '<tr class="active">';
                 echo '<td>'.$obj->id.'</td>';
                 echo '<td>'.$obj->nama_produk.'</td>';
-                echo '<td>'.$quantity.'&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=add&id='.$id.'">+</a>&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=remove&id='.$id.'">-</a></td>';
+                // echo '<td>'.$quantity.'&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=add&id='.$id.'">+</a>&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=remove&id='.$id.'">-</a></td>';
+                 echo '<td> <input type="text" value="'.$quantity.'">&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=add&id='.$id.'">+</a>&nbsp;<a class="add-to-cart" style="padding:5px;" href="update_cart.php?action=remove&id='.$id.'">-</a></td>';
+
                 echo '<td>'.$cost.'</td>';
                 echo '</tr>';
               }

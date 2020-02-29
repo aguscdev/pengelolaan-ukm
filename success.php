@@ -56,6 +56,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
         <h1><p>A/n Vina Kartika</p><h1>
         <h1><p>Nomor Rekening: 0092717410100</p><h1>
         <h1><p>Terimakasih telah belanja di UKM kami</p><h1> 
+        <a class="btn btn-danger" href="index.php">Home</a>
          
       </div>
     </div>

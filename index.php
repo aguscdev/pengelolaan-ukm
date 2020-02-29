@@ -65,8 +65,7 @@ $query2 = mysqli_query($koneksi,"SELECT * FROM produk ORDER BY kategori_id ASC")
             <p><h3>'.$obj->nama_produk.'</h3></p>
             <p><h4><strong>Description</strong>: '.$obj->deskripsi.'</h4></p>
             <p><h3><strong>Harga (Per Unit)</strong>: '.$currency.$obj->harga.'</h3></p>
-            <p><strong>Units Available</strong>: '.$obj->qty.'</p><br>';
-          
+            <p><strong>Units Available</strong>: '.$obj->qty.'</p>';
             if($obj->harga > 0){
       echo '<br><br><br><br><br><br><p><a href="update_cart.php?action=add&id='.$obj->id.'"><input type="submit" class="btn btn-warning" value="Tambahkan ke keranjang" style=";">';
       echo '</div></div>'; 
